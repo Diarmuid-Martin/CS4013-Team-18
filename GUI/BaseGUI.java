@@ -1,3 +1,6 @@
+//just throwing up some stuff to see how things work in github
+
+
 
 /**
  * This class generates a random number between 100 and 500 and gets the user to guess what number it is.
