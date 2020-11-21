@@ -4,42 +4,46 @@
 // hon tipp
 
 Property
-+Value (double)
-+Address (String)
-+Postcode (String)
-+Owners (String ArrayList)
-+Location(char? enum?)
-+principal(boolean)
-+YearCreated(int)
+-Value (double)
+-Address (String)
+-Postcode (String)
+-Owners (String ArrayList)
+-Location(char? enum?)
+-principal(boolean)
+-YearCreated(int)
 -------------
--PayTax()
++PayTax()
++TaxBrackets()
++getMarketValue()
 
 
 
 Property Owner
-+name (String)
-+OwnedProperties(Property ArrayList)
----------
--addOwner()
--addProperty()
+-name (String)
+-OwnedProperties(Property ArrayList)
+-Property (Property)
+--------
++addOwner()
++addProperty(address, eircode,marketvalue, locationCategory): add to property ArrayList)
++getPropertyTaxDue(): use the property tax calculator, return amount of property tax due
++payPropertyTax(double amount): calls the Transaction account
 
 
-
-Transaction
-+amount(double)
-+CurrentBalance(double)
+Transaction - when tax is paid, writes a history, have a toString/print to file
+-amount(double)
+-CurrentBalance(double)
 -----------
 
 
 
 
-Tax Data
+TaxData/PropertyTaxCalculator(calcs the tax on one property)
 
 
 
 
 
-Read/Write
+Read/Write extends Serializable?
 
 
 
