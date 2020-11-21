@@ -2,3 +2,65 @@
 // so am I...hannah
 // ya lad
 // hon tipp
+
+Property
++Value (double)
++Address (String)
++Postcode (String)
++Owners (String ArrayList)
++Location(char? enum?)
++principal(boolean)
++YearCreated(int)
+-------------
+-PayTax()
+-TaxBrackets()
+
+
+
+Property Owner
++name (String)
++OwnedProperties(Property ArrayList)
++Property (Property)
+---------
+-addOwner()
+-addProperty()
+
+
+
+Transaction
++amount(double)
++CurrentBalance(double)
+-----------
+
+
+
+
+Tax Data
+
+
+
+
+
+Read/Write
+
+
+
+
+
+Search
+
+
+
+
+
+BaseGUI
+
+
+
+
+AdminGUI
+
+
+
+
+PropertyOwnerGUI
