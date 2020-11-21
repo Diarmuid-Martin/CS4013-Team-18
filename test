@@ -37,16 +37,23 @@ Transaction - when tax is paid, writes a history, have a toString/print to file
 
 
 
-TaxData/PropertyTaxCalculator(calcs the tax on one property)
+TaxData/PropertyTaxCalculator(calcs the tax on one property for this year, doesn't take into
+account overdue tax)
 
 
-
+PropertyTaxDue(gets the total amount due for one property owner, including overdue tax)
+-isOverdueTax: boolean
+-
+-----------
++calcTaxForCurrentYear(property ArrayList)
+has a for loop on the property ArrayList that calls the PropertyTaxCalculator class
+on each property in the ArrayList and adds together the total amount of tax due
 
 
 Read/Write extends Serializable?
 
-
-
+-----------
++getOverdueTax: from
 
 
 Search
