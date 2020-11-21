@@ -19,7 +19,6 @@ Property
 Property Owner
 +name (String)
 +OwnedProperties(Property ArrayList)
-+Property (Property)
 ---------
 -addOwner()
 -addProperty()
