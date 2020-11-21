@@ -42,18 +42,19 @@ account overdue tax)
 
 
 PropertyTaxDue(gets the total amount due for one property owner, including overdue tax)
--isOverdueTax: boolean
+-double overdueTax: get from getOverdueTax method in read/write file
 -
 -----------
-+calcTaxForCurrentYear(property ArrayList)
++calcTaxForCurrentYear(property ArrayList): returns double thisYearsTax
 has a for loop on the property ArrayList that calls the PropertyTaxCalculator class
 on each property in the ArrayList and adds together the total amount of tax due
 
++totalTaxdue(double overdueTax, double thisYearsTax): returns total amount of tax due for this year
 
 Read/Write extends Serializable?
 
 -----------
-+getOverdueTax: from
++getOverdueTax: from text file and return the amount of taxDue
 
 
 Search
