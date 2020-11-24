@@ -1,0 +1,108 @@
+
+import java.time.LocalDate;
+
+/**
+ * vvery beginning of Property class
+ * @author (liam)
+ * @version (a version number or a date)
+ */
+public class Property
+{
+    // instance variables - replace the example below with your own
+    private double Value;
+    private String Address;
+    private String Postcode;
+    // private ArrayList<ProperyOwner> Owners;
+    private int YearCreated;
+    private boolean principle;
+    private char location; //  enum/char, probs should be enum tbh, will change it
+    // have to remember how to use it
+    // city     100
+    // l town   80  
+    // s town   60
+    // village  50
+    // country  25
+    private int[]PropValue={0,150000,400000,650000}; 
+    // note ranges are 0-149999, 150 - 400, 400001-650, 650+ in q
+    private double[]TaxRate={0,.01,.02,.04};
+    /**
+     * Constructor for objects of class Property
+     */
+    // have to add the ArrayList of owners to the constructor
+    //ELLEN: I've adjusted the yearCreated's initialisation and I have removed
+    //the boolean principle field as that will be done in Property owner i think
+    public Property(double pValue, String pAddress,String pPostcode, int pYearCreated,char pLocation)
+    {
+        Value = pValue;
+        Address = pAddress;
+        Postcode = pPostcode;
+        YearCreated = pYearCreated;//LocalDate.now().getYear();
+        location = pLocation;
+        //principal=PropertyOwner.isPrincipleProperty(PropertyOwner.ownedProperties.get(i));
+    }
+
+    public void setValue(double pValue)
+    {
+        Value = pValue;
+    }
+
+    public double getValue()
+    {
+        return Value;
+    }
+
+    public void setYearCreated(int pYearCreated)
+    {
+        YearCreated = pYearCreated;
+    }
+
+    public int getYearCreated()
+    {
+        return YearCreated;
+    }
+
+    public void setAddress(String pAddress)
+    {
+        Address = pAddress;
+    }
+
+    public String getAddress()
+    {
+        return Address;
+    }
+
+    public void setPostcode(String pPostcode)
+    {
+        Postcode = pPostcode;
+    }
+
+    public String getPostcode()
+    {
+        return Postcode;
+    }
+
+    public void setLocation(char pLocation)
+    {
+        location =pLocation;
+    }
+
+    public char getLocation()
+    {
+        return location;
+    }
+
+    public void setPrinciple(boolean pPrinciple)
+    {
+        principle = pPrinciple;
+    }
+
+    public boolean getPrinciple()
+    {
+        return principle;
+    }
+    
+    public void PayTax()
+    {
+        
+    }   
+}
