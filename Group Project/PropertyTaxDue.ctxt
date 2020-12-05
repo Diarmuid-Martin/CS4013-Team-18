@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=PropertyTaxDue
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ PropertyTaxDue\ here.\r\n\ \r\n\ @author\ (liam\ +\ ellen)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=property
+comment1.target=double\ calculateTaxDueOfOneProperty(Property)
+comment1.text=\r\n\ Returns\ the\ total\ tax\ due\ for\ 1\ property\r\n
+comment2.params=owner
+comment2.target=double\ calculateOwnersTotalTaxDue(PropertyOwner)
+comment2.text=\r\n\ Search\ through\ an\ ArrayList\ of\ PropertyOwners\ \r\n\ calculates\ the\ sum\ of\ all\ the\ tax\ due\r\n\ \r\n\ Returns\ how\ much\ tax\ an\ owner\ owes\r\n
+numComments=3

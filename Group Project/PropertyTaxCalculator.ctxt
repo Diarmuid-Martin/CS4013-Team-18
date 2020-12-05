@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=PropertyTaxCalculator
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ PropertyTaxCaculator\ here.\r\n\ PropertyTacCalculator\r\n\ Doesnt\ have\ Penalty\ for\ unpaid\ tax\ yet\r\n\r\n\ @author\ (liam)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=property
+comment1.target=double\ getTotalTaxThisYear(Property)
+numComments=2

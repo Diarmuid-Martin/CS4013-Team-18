@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=OverDueTax
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ OverDueTax\ here.\r\n\r\n\ @author\ (liam\ +\ )\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=property
+comment1.target=double\ calcOverdueTax(Property)
+numComments=2

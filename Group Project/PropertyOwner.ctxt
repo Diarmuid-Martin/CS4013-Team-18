@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.target=PropertyOwner
+comment0.text=\r\n\ THINGS\ I\ NEED\ TO\ SORT\ IN\ THIS\ CLASS\:\r\n\ How\ does\ it\ relate\ to\ owner?\r\n\ @author\ Ellen\r\n
+comment1.params=name
+comment1.target=PropertyOwner(java.lang.String)
+comment10.params=
+comment10.target=java.lang.String\ toString()
+comment2.params=
+comment2.target=java.util.ArrayList\ getAllPropertyOwners()
+comment3.params=
+comment3.target=java.lang.String\ getName()
+comment4.params=name
+comment4.target=void\ setName(java.lang.String)
+comment5.params=
+comment5.target=java.util.ArrayList\ getOwnedProperties()
+comment6.params=ownedProperties
+comment6.target=void\ setOwnedProperties(java.util.ArrayList)
+comment7.params=marketValue\ address\ eircode\ year\ locationCategory
+comment7.target=void\ addProperty(double,\ java.lang.String,\ java.lang.String,\ int,\ char)
+comment8.params=
+comment8.target=double\ getPropertyTaxDue()
+comment8.text=\r\n\ Use\ the\ property\ tax\ calculator,\ return\ amount\ of\ property\ tax\ due\r\n\ NEED\ TO\ GET\ THE\ PROPERTYTAX\ CALC\ WORKING\ FIRST\r\n
+comment9.params=amount
+comment9.target=double\ payPropertyTax(double)
+comment9.text=\r\n\ A\ method\ that\ pays\ the\ propertyTax\ and\ calls\ the\ Transaction\ account\r\n\ and\ returns\ the\ proper\r\n\ @param\ amounttyTaxDue\r\n
+numComments=11
