@@ -1,13 +1,13 @@
-import java.time.LocalDate;
+
 import java.util.ArrayList;
 
 /**
-* This is just what ive done, will prons have to be broken up into diff clases
-* but i just threw everything together.
-*
-* @author (liam)
-* @version (a version number or a date)
-*/
+ * This is just what ive done, will prons have to be broken up into diff clases
+ * but i just threw everything together.
+ *
+ * @author (liam,ellen)
+ * @version (a version number or a date)
+ */
 public class Property
 {
     
@@ -16,7 +16,7 @@ public class Property
     private String Postcode;
     // private ArrayList<ProperyOwner> Owners;
     //should we have owner as an instance variable
-   private int YearCreated;
+    private int YearCreated;
     private boolean principle;
     //Have an overdueTax instance variable? that maintains the amount of 
     //overdue tax from one year to another?
@@ -48,6 +48,11 @@ public class Property
         allProperties.add(new Property(Value,Address,Postcode,YearCreated,location));
     }
 
+    public ArrayList<Property> getAllProperties() {
+        return allProperties;
+    }
+
+   
     public void setValue(double pValue)
     {
         Value = pValue;
@@ -108,12 +113,11 @@ public class Property
         return principle;
     }
     
-    /**
-     * 
-     */
+    //I HOPE THAT this PASSES IN THE CURRENT PROPERTY OBJECT INTO THE METHOD
    public double getTotalTax()
     { 
-        return 5;
+        PropertyTaxCalculator c1=new PropertyTaxCalculator();
+        return c1.getTotalTax(this);
     }
    
     public void PayTax()
@@ -121,3 +125,4 @@ public class Property
         
     }   
 }
+
