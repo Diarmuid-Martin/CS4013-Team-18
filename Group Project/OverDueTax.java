@@ -18,7 +18,7 @@ public class OverDueTax
          */
         for(int i = yearOne;i < 2020;i++)
         {
-            overdueTax = overdueTax +(TaxDue - TaxPaid);
+            overdueTax = (overdueTax +(TaxDue - TaxPaid))*1.07;
         }
         return overdueTax;
     }
