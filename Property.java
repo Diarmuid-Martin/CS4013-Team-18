@@ -1,24 +1,27 @@
-
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
- * This is just what ive done, will prons have to be broken up into diff clases
- * but i just threw everything together. (calculator is in this class)
+ * A property has a property owner so should property extend PropertyOwner
+ * This might make it easier for us to add ownedProperties to the Arraylist
+ * of Properties in the PropertyOwner class
  *
- * @author (liam)
- * @version (a version number or a date)
+ * @author (liam+ellen)
+ * @version 6/12/2020
  */
 public class Property
 {
-    // instance variables - replace the example below with your own
+    
     private double Value;
     private String Address;
     private String Postcode;
     // private ArrayList<ProperyOwner> Owners;
+    //should we have owner as an instance variable
     private int YearCreated;
     private boolean principle;
-    private String location; //  enum/char, probs should be enum tbh, will change it
-    // have to remember how to use it
+    //Have an overdueTax instance variable? that maintains the amount of 
+    //overdue tax from one year to another?
+    private char location; 
     // city     100
     // l town   80  
     // s town   60
@@ -27,23 +30,34 @@ public class Property
     private int[]PropValue={0,150000,400000,650000}; 
     // note ranges are 0-149999, 150 - 400, 400001-650, 650+ in q
     private double[]TaxRate={0,.01,.02,.04};
+    private ArrayList<Property> allProperties=new ArrayList<>();
+    
+    //I'm creating an object of PropertyTaxCalculator here so that
+    //we can use it to carry out calculations throughout this class
+    PropertyTaxCalculator c1=new PropertyTaxCalculator();
+    
     /**
      * Constructor for objects of class Property
      */
-    // have to add the ArrayList of owners to the constructor
-    //ELLEN: I've adjusted the yearCreated's initialisation and I have removed
-    //the boolean principle field as that will be done in Property owner i think
-    public Property(double pValue, String pAddress,String pPostcode, int pYearCreated,String pLocation)
+    // have to add the ArrayList of owners to the constructor, that is if a 
+    //property has more than one owner
+ 
+    public Property(double pValue, String pAddress,String pPostcode, int pYearCreated,char pLocation)
     {
         Value = pValue;
         Address = pAddress;
         Postcode = pPostcode;
         YearCreated = pYearCreated;//LocalDate.now().getYear();
         location = pLocation;
-        //PropertyOwner.addProperty(Value,Address,Postcode,YearCreated,location);
-        principle=isPrincipleProperty();
+        allProperties.add(new Property(Value,Address,Postcode,YearCreated,location));
+        
     }
 
+    public ArrayList<Property> getAllProperties() {
+        return allProperties;
+    }
+
+   
     public void setValue(double pValue)
     {
         Value = pValue;
@@ -84,12 +98,12 @@ public class Property
         return Postcode;
     }
 
-    public void setLocation(String pLocation)
+    public void setLocation(char pLocation)
     {
         location =pLocation;
     }
 
-    public String getLocation()
+    public char getLocation()
     {
         return location;
     }
@@ -104,60 +118,33 @@ public class Property
         return principle;
     }
     
-    public double getTotalTax()
-    {
-        // need to add location category tax
-        // and penalty for unpaid tax
-
-        double fixed = 100;
-        int principleAmount;
-        double EstValue = getValue();
-        double calcTaxRate = 0;
-        double locationTax = 0;
-        if(principle == true)
-        {
-            principleAmount = 100;
-        }
-        else
-        {
-           principleAmount = 0; 
-        }
+    //I HOPE THAT this PASSES IN THE CURRENT PROPERTY OBJECT INTO THE METHOD
+    /**
+     * Calculates the total tax(current year+overdue)  on the current property object
+     * Do I want to maintain this value as an instance variable in this class
+     * to use the payProperty tax method
+     * @return 
+     */
+   public double getTotalTax()
+    { 
         
-        //could also do 2 arrays and get index for these methods.
-        // or enum
-        if(getLocation() == "CITY")
-        {
-            locationTax = 100;
-        }
-        
-        if(getLocation() == "LARGE TOWN")
-        {
-            locationTax = 80;
-        }
-        
-        if(getLocation() == "SMALL TOWN")
-        {
-            locationTax = 60;
-        }
-        
-        if(getLocation() == "VILLAGE")
-        {
-            locationTax = 50;
-        }
-        
-        if(getLocation() == "COUNTRYSIDE")
-        {
-            locationTax = 25;
-        }
-        
-        for(int j = 1; j<PropValue.length;j++)
-        {
-            if(EstValue >= PropValue[j-1] && EstValue < PropValue[j])
-            {
-                calcTaxRate = TaxRate[j-1];
-            }
-        }
-        
-        return fixed + locationTax + principleAmount + getValue()*calcTaxRate;
+     return c1.totalTaxOnOneProperty(this);
     }
+   
+   /**
+    * A payTax method that calls the PropertyTaxCalculator to carry out 
+    * the payment of tax and recalculation of overdue tax.
+    * Note how we need the owner of the property to carry this out in a way
+    * that reduces the total amount of propertyTax
+     * that the owner owes on all properties. This implies that the property
+     * class will need to maintain an instance of an owner object or extend the
+     * owner object
+     * 
+    * @param paymentAmount 
+    */
+    public void payTaxOnThisProperty(double paymentAmount)
+    {
+       // c1.payTax(owner,this,paymentAmount)
+    }   
 }
+
