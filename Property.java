@@ -1,150 +1,217 @@
-import java.time.LocalDate;
-import java.util.ArrayList;
+package com.company;
 
-/**
- * A property has a property owner so should property extend PropertyOwner
- * This might make it easier for us to add ownedProperties to the Arraylist
- * of Properties in the PropertyOwner class
- *
- * @author (liam+ellen)
- * @version 6/12/2020
- */
-public class Property
-{
-    
-    private double Value;
-    private String Address;
-    private String Postcode;
-    // private ArrayList<ProperyOwner> Owners;
-    //should we have owner as an instance variable
-    private int YearCreated;
-    private boolean principle;
-    //Have an overdueTax instance variable? that maintains the amount of 
-    //overdue tax from one year to another?
-    private char location; 
-    // city     100
-    // l town   80  
-    // s town   60
-    // village  50
-    // country  25
-    private int[]PropValue={0,150000,400000,650000}; 
-    // note ranges are 0-149999, 150 - 400, 400001-650, 650+ in q
-    private double[]TaxRate={0,.01,.02,.04};
-    private ArrayList<Property> allProperties=new ArrayList<>();
-    
-    //I'm creating an object of PropertyTaxCalculator here so that
-    //we can use it to carry out calculations throughout this class
-    PropertyTaxCalculator c1=new PropertyTaxCalculator();
-    
-    /**
-     * Constructor for objects of class Property
-     */
-    // have to add the ArrayList of owners to the constructor, that is if a 
-    //property has more than one owner
- 
-    public Property(double pValue, String pAddress,String pPostcode, int pYearCreated,char pLocation)
-    {
-        Value = pValue;
-        Address = pAddress;
-        Postcode = pPostcode;
-        YearCreated = pYearCreated;//LocalDate.now().getYear();
-        location = pLocation;
-        allProperties.add(new Property(Value,Address,Postcode,YearCreated,location));
-        
+
+import java.util.Objects;
+
+public class Property {
+
+
+    private int propNumb;
+    private String name;
+    private String address;
+    private String eircode;
+    private double value;
+    private String principal;
+    private String location;
+    private int year;
+    private double currentTax;
+    private double overdueTax;
+    private double totalTax;
+    private double amountPaid;
+    private double balance;
+
+    public Property(int propNumb,String name, String address, String eircode, double value, String principal, String location,
+                       int year, double currentTax, double overdueTax, double totalTax, double amountPaid, double balance){
+
+        this.propNumb=propNumb;
+        this.name=name;
+        this.address=address;
+        this.eircode=eircode;
+        this.value=value;
+        this.principal=principal;
+        this.location=location;
+        this.year=year;
+        this.currentTax=currentTax;
+        this.overdueTax=overdueTax;
+        this.totalTax=totalTax;
+        this.amountPaid=amountPaid;
+        this.balance=balance;
+
     }
 
-    public ArrayList<Property> getAllProperties() {
-        return allProperties;
+    //set methods
+
+
+    public void setPropNumb(int propNumb) {
+        this.propNumb = propNumb;
     }
 
-   
-    public void setValue(double pValue)
-    {
-        Value = pValue;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public double getValue()
-    {
-        return Value;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public void setYearCreated(int pYearCreated)
-    {
-        YearCreated = pYearCreated;
+    public void setEircode(String eircode) {
+        this.eircode = eircode;
     }
 
-    public int getYearCreated()
-    {
-        return YearCreated;
+    public void setValue(double value) {
+        this.value = value;
     }
 
-    public void setAddress(String pAddress)
-    {
-        Address = pAddress;
+    public void setPrincipal(String principal) {
+       this.principal=principal;
     }
 
-    public String getAddress()
-    {
-        return Address;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public void setPostcode(String pPostcode)
-    {
-        Postcode = pPostcode;
+    public void setYear(int year) {
+        this.year = year;
     }
 
-    public String getPostcode()
-    {
-        return Postcode;
+    public void setCurrentTax(double currentTax) {
+        this.currentTax = currentTax;
     }
 
-    public void setLocation(char pLocation)
-    {
-        location =pLocation;
+    public void setOverdueTax(double overdueTax) {
+        this.overdueTax = overdueTax;
     }
 
-    public char getLocation()
-    {
+    public void setTotalTax(double totalTax) {
+        this.totalTax = totalTax;
+    }
+
+    public void setAmountPaid(double amountPaid) {
+        this.amountPaid = amountPaid;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+
+
+    //get mehtods
+    public int getPropNumb() {
+        return propNumb;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getEircode() {
+        return eircode;
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+    public String getPrincipal() {
+        return principal;
+    }
+
+    public String getLocation() {
         return location;
     }
 
-    public void setPrinciple(boolean pPrinciple)
-    {
-        principle = pPrinciple;
+    public int getYear() {
+        return year;
     }
 
-    public boolean getPrinciple()
-    {
-        return principle;
+    public double getCurrentTax() {
+        return currentTax;
     }
-    
-    //I HOPE THAT this PASSES IN THE CURRENT PROPERTY OBJECT INTO THE METHOD
-    /**
-     * Calculates the total tax(current year+overdue)  on the current property object
-     * Do I want to maintain this value as an instance variable in this class
-     * to use the payProperty tax method
-     * @return 
-     */
-   public double getTotalTax()
-    { 
-        
-     return c1.totalTaxOnOneProperty(this);
+
+    public double getOverdueTax() {
+        return overdueTax;
     }
-   
-   /**
-    * A payTax method that calls the PropertyTaxCalculator to carry out 
-    * the payment of tax and recalculation of overdue tax.
-    * Note how we need the owner of the property to carry this out in a way
-    * that reduces the total amount of propertyTax
-     * that the owner owes on all properties. This implies that the property
-     * class will need to maintain an instance of an owner object or extend the
-     * owner object
-     * 
-    * @param paymentAmount 
-    */
-    public void payTaxOnThisProperty(double paymentAmount)
-    {
-       // c1.payTax(owner,this,paymentAmount)
-    }   
+
+    public double getTotalTax() {
+        return totalTax;
+    }
+
+    public double getAmountPaid() {
+        return amountPaid;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+
+
+
+    //toStringArray
+    public String[] toStringArray() {
+        String[] s=new String[13];
+        s[0]=Double.toString(propNumb);
+        s[1]=name;
+        s[2]=address;
+        s[3]=eircode;
+        s[4]=Double.toString(value);
+        s[5]=principal;
+        s[6]=location;
+        s[7]= Integer.toString(year);
+        s[8]=Double.toString(currentTax);
+        s[9]=Double.toString(overdueTax);
+        s[10]=Double.toString(totalTax);
+        s[11]=Double.toString(amountPaid);
+        s[12]=Double.toString(balance);
+        return s;
+    }
+
+    //toCsvString
+    public String toStringCsv(){
+        String[] s = this.toStringArray();
+        String c =s[0]+","+s[1]+","+s[2]+","+s[3]+","+s[4]+","+s[5]+"," +s[6]+","+s[7]+","+s[8]+","+s[9]+","+s[10]+","+s[11]+","+s[12];
+        return c;
+
+    }
+
+    //toString
+    @Override
+    public String toString() {
+        return "Property{" +
+                "propNumb=" + propNumb +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", eircode='" + eircode + '\'' +
+                ", value=" + value +
+                ", principal=" + principal +
+                ", location=" + location +
+                ", year=" + year +
+                ", currentTax=" + currentTax +
+                ", overdueTax=" + overdueTax +
+                ", totalTax=" + totalTax +
+                ", amountPaid=" + amountPaid +
+                ", balance=" + balance +
+                '}';
+    }
+
+    //equels
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Property property = (Property) o;
+        return propNumb == property.propNumb && Double.compare(property.value, value) == 0 && principal == property.principal && location == property.location && year == property.year && Double.compare(property.currentTax, currentTax) == 0 && Double.compare(property.overdueTax, overdueTax) == 0 && Double.compare(property.totalTax, totalTax) == 0 && Double.compare(property.amountPaid, amountPaid) == 0 && Double.compare(property.balance, balance) == 0 && Objects.equals(name, property.name) && Objects.equals(address, property.address) && Objects.equals(eircode, property.eircode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(propNumb, name, address, eircode, value, principal, location, year, currentTax, overdueTax, totalTax, amountPaid, balance);
+    }
 }
-
