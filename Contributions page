@@ -14,7 +14,27 @@ Worked on a PropertyOwner class
 
 Liam
 Did the Command Line Interface, code & javadoc, UML Diagram
-
+App
+Balancing Statement
+LineItem
+OwnerLineItem
+properyLineItem
+Statement
+TaxCalculator
+TaxCalculatorImpl
+Database
+IO
+InputCheck
+InputChecking
+Factory
+Location
+Model
+Owner
+Property
+Saveable
+Transaction
+Controller
+CMDController
 
 
 
