@@ -5,10 +5,10 @@ DisplayPropData code and Java Doc
 DisplayPropOwnData code and Java Doc
 DisplayTaxStat code and Java Doc
 OverDueTaxGUI
-Added to Diarmuid's PropData class
-Added to Diarmuid's PropOwnData class
-Added to Diarmuid's TaxStat class
-Helped with the early verison of PropertyTaxCalculator 
+Did PropData class with Diarmuid
+Did PropOwnData class with Diarmuid
+Did TaxStat class with Diarmuid
+Helped with the PropertyTaxCalculator 
 Did a Payments class but we didn't use this in the end
 Worked on a PropertyOwner class
 
