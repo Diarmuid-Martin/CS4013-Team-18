@@ -23,7 +23,19 @@ Diarmuid
 FindFile code 
 OpeningScreen code 
 AdminUser code
+Choose Owner.java code
 Helped with the Admin side of the GUI (minor things like adding buttons)
 Added methods to PayMyTax 
 Added java doc to FindFile, PayMyTax, OwnerFunctions, PropertyOb, AddProperty, ChooseProp, DataCVS, OwnerWho
+
+Hannah
+dataCVS.java
+OwnerWho.java
+PropertyOb.java and Property.java (they are more or less the same, there was a name change at some point but both classes are used)
+OwnerFunctions.java
+PayMyTax.java (part of, Diarmuid did a lot)
+AddProperty.java
+UML diagram.
+
+
 
