@@ -1,0 +1,3 @@
+The GUI starts with the OpeningScreen class (via main(String[] args)
+
+https://github.com/Diarmuid-Martin/CS4013-Team-18
